@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .chart-container {
+            height: 400px;
+            background: #1e293b;
+            border-radius: 0.5rem;
+        }
+        .dark-bg {
+            background-color: #0f172a;
+        }
+        .card-bg {
+            background-color: #1e293b;
+        }
+    </style>
+</head>
+<body class="dark-bg text-white min-h-screen">
+    <div class="container mx-auto px-4 py-6">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-6">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl font-bold">TradingHub</h1>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-blue-400">Dashboard</a>
+                    <a href="#" class="hover:text-blue-400">Markets</a>
+                    <a href="#" class="hover:text-blue-400">Portfolio</a>
+                    <a href="#" class="hover:text-blue-400">History</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search..." class="bg-gray-700 px-4 py-2 rounded-full text-sm">
+                    <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+                </div>
+                <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-sm">Connect Wallet</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Market Overview -->
+                <div class="card-bg p-6 rounded-xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-semibold">Market Overview</h2>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 bg-gray-600 rounded-md text-sm">24h</button>
+                            <button class="px-3 py-1 bg-blue-600 rounded-md text-sm">7d</button>
+                            <button class="px-3 py-1 bg-gray-600 rounded-md text-sm">1m</button>
+                        </div>
+                    </div>
+                    <div class="chart-container flex items-center justify-center">
+                        <p class="text-gray-400">Price Chart Visualization</p>
+                    </div>
+                </div>
+
+                <!-- Order Book -->
+                <div class="card-bg p-6 rounded-xl">
+                    <h2 class="text-xl font-semibold mb-4">Order Book</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <h3 class="text-green-400 mb-2">Bids</h3>
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-sm">
+                                    <span>0.00042</span>
+                                    <span>1,245.32</span>
+                                    <span>523.03</span>
+                                </div>
+                                <!-- More bid rows would go here -->
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-red-400 mb-2">Asks</h3>
+                            <div class="space-y-1">
+                                <div class="flex justify-between text-sm">
+                                    <span>0.00043</span>
+                                    <span>845.21</span>
+                                    <span>363.44</span>
+                                </div>
+                                <!-- More ask rows would go here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-6">
+                <!-- Trading Pairs -->
+                <div class="card-bg p-6 rounded-xl">
+                    <h2 class="text-xl font-semibold mb-4">Trading Pairs</h2>
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center p-2 hover:bg-gray-700 rounded cursor-pointer">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 bg-gray-500 rounded-full"></div>
+                                <span>BTC/USDT</span>
+                            </div>
+                            <span class="text-green-400">+2.34%</span>
+                        </div>
+                        <!-- More trading pairs would go here -->
+                    </div>
+                </div>
+
+                <!-- Trade Panel -->
+                <div class="card-bg p-6 rounded-xl">
+                    <div class="flex border-b border-gray-600 mb-4">
+                        <button class="px-4 py-2 border-b-2 border-blue-500">Buy</button>
+                        <button class="px-4 py-2 text-gray-400">Sell</button>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">Amount</label>
+                            <div class="relative">
+                                <input type="text" class="w-full bg-gray-700 p-2 rounded-md">
+                                <span class="absolute right-2 top-2 text-gray-400 text-sm">USDT</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">Price</label>
+                            <div class="relative">
+                                <input type="text" class="w-full bg-gray-700 p-2 rounded-md">
+                                <span class="absolute right-2 top-2 text-gray-400 text-sm">USDT</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">Total</label>
+                            <div class="relative">
+                                <input type="text" class="w-full bg-gray-700 p-2 rounded-md">
+                                <span class="absolute right-2 top-2 text-gray-400 text-sm">USDT</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 hover:bg-green-700 py-3 rounded-md font-medium">Buy BTC</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple interactivity
+        document.querySelectorAll('.chart-container').forEach(chart => {
+            chart.addEventListener('click', () => {
+                alert('Chart would expand here in a real implementation');
+            });
+        });
+    </script>
+</body>
+</html>
