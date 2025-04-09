@@ -56,9 +56,22 @@
                             <button class="px-3 py-1 bg-gray-600 rounded-md text-sm">1m</button>
                         </div>
                     </div>
-                    <div class="chart-container flex items-center justify-center">
-                        <p class="text-gray-400">Price Chart Visualization</p>
+                    <div class="flex space-x-2 mb-2">
+                        <select class="bg-gray-700 px-3 py-1 rounded-md text-sm">
+                            <option>MT5 Pairs</option>
+                            <option>Boom 300</option>
+                            <option>Boom 500</option>
+                            <option>Boom 1000</option>
+                        </select>
+                        <select class="bg-gray-700 px-3 py-1 rounded-md text-sm">
+                            <option>Indicators</option>
+                            <option>MA</option>
+                            <option>RSI</option>
+                            <option>MACD</option>
+                            <option>Bollinger Bands</option>
+                        </select>
                     </div>
+                    <div id="tv-chart" class="chart-container"></div>
                 </div>
 
                 <!-- Order Book -->
@@ -113,6 +126,7 @@
                     <div class="flex border-b border-gray-600 mb-4">
                         <button class="px-4 py-2 border-b-2 border-blue-500">Buy</button>
                         <button class="px-4 py-2 text-gray-400">Sell</button>
+                        <button class="px-4 py-2 text-gray-400 ml-auto text-sm">Boom Mode</button>
                     </div>
                     <div class="space-y-4">
                         <div>
@@ -143,12 +157,15 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <script src="deriv-api.js"></script>
+    <script src="trading.js"></script>
+    <script src="indicators.js"></script>
     <script>
-        // Simple interactivity
-        document.querySelectorAll('.chart-container').forEach(chart => {
-            chart.addEventListener('click', () => {
-                alert('Chart would expand here in a real implementation');
-            });
+        // Initialize trading UI
+        document.addEventListener('DOMContentLoaded', () => {
+            initTradingChart();
+            loadMT5Pairs();
         });
     </script>
 </body>
